@@ -1,0 +1,9 @@
+body {
+  place-items: unset;
+  margin-left: 48px;
+}
+
+.links-container {
+  margin-bottom: 24px;
+  border-bottom: 1px solid #6364c2;
+}
