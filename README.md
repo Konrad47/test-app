@@ -38,6 +38,12 @@ DATABASE_URL="postgresql://test:test@localhost:5434/nest?schema=public"
 npx prisma migrate deploy
 ```
 
+oraz:
+
+```
+npx prisma generate
+```
+
 Inne przydatne polecenia:
 
 - Przystępne zarządzanie bazą danych:
