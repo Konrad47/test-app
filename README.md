@@ -44,7 +44,7 @@ oraz:
 npx prisma generate
 ```
 
-Inne przydatne polecenia:
+Inne przydatne polecenia w folderze /test-app/test-server:
 
 - Przystępne zarządzanie bazą danych:
 
