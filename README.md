@@ -24,7 +24,6 @@ W folderze /test-app/test-server uruchamiamy polecenia:
 
 ```
 npm run db:dev:up
-
 ```
 
 2. Zastosowanie migracji:
