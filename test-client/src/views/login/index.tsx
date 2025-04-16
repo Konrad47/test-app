@@ -42,7 +42,7 @@ const LoginView = (): React.JSX.Element => {
   };
 
   return (
-    <div className="login-container">
+    <div className="container login-container">
       <h1>Login</h1>
       <div className="links-container">
         <Link to="/">Home</Link>

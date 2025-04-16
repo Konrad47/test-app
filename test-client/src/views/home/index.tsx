@@ -39,13 +39,13 @@ const HomeView = (): React.JSX.Element => {
 
   return (
     <>
-      <div className="home-container">
+      <div className="container">
         <h1>Home</h1>
         <div className="links-container">
           <Link to="/example">Example</Link>
           <Link to="/login">Login</Link>
         </div>
-        {me !== null ? <div>{me.username}</div> : <h1>Loading...</h1>}
+        {me !== null ? <div>{me.username}</div> : <p>Loading...</p>}
       </div>
     </>
   );

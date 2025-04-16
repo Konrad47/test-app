@@ -8,9 +8,11 @@ const ExampleView = (): React.JSX.Element => {
 
   return (
     <>
-      <div className="example-container">
+      <div className="container">
         <h1>Example</h1>
-        <Link to="/">Home</Link>
+        <div className="links-container">
+          <Link to="/">Home</Link>
+        </div>
         {examples !== null ? (
           <ExamplesData examples={examples} />
         ) : (
