@@ -20,7 +20,7 @@ export const fetchMe = async (
 
     return response.json();
   } catch (error) {
-    console.log("fetchMe Error: ", error);
+    console.error("fetchMe Error: ", error);
     return null;
   }
 };

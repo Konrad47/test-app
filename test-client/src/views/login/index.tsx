@@ -34,7 +34,6 @@ const LoginView = (): React.JSX.Element => {
 
     const result = await login(formData);
     if (result && result.access_token) {
-      console.log("Logged in successfully:", result.access_token, result.id);
       dispatch(setAccessToken(result.access_token));
       dispatch(setId(result.id));
       navigate("/authorized");
