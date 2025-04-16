@@ -1,20 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { fetchMe } from "./api/userApi";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
+import { useFetchMe } from "./hooks/useFetchMe";
 
 const AuthorizedView = (): React.JSX.Element => {
-  const [me, setMe] = useState<{ username: string } | null>(null);
-  const { id, access_token } = useSelector((state: RootState) => state.auth);
-
-  useEffect(() => {
-    const getMe = async () => {
-      const meApi = await fetchMe(id, access_token);
-      setMe(meApi);
-    };
-    getMe();
-  }, []);
+  const me = useFetchMe();
 
   return (
     <>

@@ -7,6 +7,7 @@ import LoginView from "./views/login";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 import AuthorizedView from "./views/user";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App(): React.JSX.Element {
   return (
@@ -16,7 +17,9 @@ function App(): React.JSX.Element {
           <Route index element={<HomeView />}></Route>
           <Route path="/example" element={<ExampleView />}></Route>
           <Route path="/login" element={<LoginView />}></Route>
-          <Route path="/authorized" element={<AuthorizedView />}></Route>
+          <Route element={<PrivateRoute />}>
+            <Route path="/authorized" element={<AuthorizedView />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </Provider>
