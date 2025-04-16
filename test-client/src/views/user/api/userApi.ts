@@ -1,12 +1,14 @@
 const url = "http://localhost:3000/user";
 
 export const fetchMe = async (
-  id: number
+  id: number,
+  accessToken: string
 ): Promise<{ username: string } | null> => {
   try {
     const response = await fetch(`${url}/me/${id}`, {
       method: "GET",
       headers: {
+        Authorization: `Bearer ${accessToken}`,
         Accept: "application/json",
       },
     });
