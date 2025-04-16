@@ -1,6 +1,7 @@
 import {
   ForbiddenException,
   Injectable,
+  OnModuleInit,
   UnauthorizedException,
 } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
@@ -10,7 +11,7 @@ import { AuthDto } from './dto';
 import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
-export class AuthService {
+export class AuthService implements OnModuleInit {
   constructor(
     private readonly prisma: PrismaService,
     private jwtService: JwtService,
@@ -61,5 +62,18 @@ export class AuthService {
       id: user.id,
       access_token: await this.jwtService.signAsync(payload),
     };
+  }
+
+  async onModuleInit() {
+    const admin = {
+      username: 'admin',
+      password: 'admin',
+    };
+    const findUser = await this.prisma.user.findUnique({
+      where: { username: admin.username },
+    });
+    if (!findUser) {
+      this.register({ username: admin.username, password: admin.password });
+    }
   }
 }
