@@ -26,7 +26,13 @@ W folderze /test-app/test-server uruchamiamy polecenia:
 npm run db:dev:up
 ```
 
-2. Zastosowanie migracji:
+2. Dodanie pliku .env w folderze /test-app/test-server, który zawiera:
+
+```
+DATABASE_URL="postgresql://test:test@localhost:5434/nest?schema=public"
+```
+
+3. Zastosowanie migracji:
 
 ```
 npx prisma migrate deploy
@@ -50,13 +56,7 @@ W folderze /test-app/test-server uruchamiamy polecenie:
 npm install
 ```
 
-2. Dodanie pliku .env
-
-```
-DATABASE_URL="postgresql://test:test@localhost:5434/nest?schema=public"
-```
-
-3. Uruchomienie aplikacji:
+2. Uruchomienie aplikacji:
 
 ```
 npm run start
