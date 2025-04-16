@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { login } from "./api/exampleApi";
+import { login } from "./api/loginApi";
 import "./index.css";
 import { AuthDto } from "./models";
 import { AppDispatch } from "../../store/store";
