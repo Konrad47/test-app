@@ -14,7 +14,7 @@
 
 ## Uruchomienie projektu
 
-Na początku należy pobrać odpowiednią werjse Node.js i Docker
+Na początku należy pobrać odpowiednią wersje Node.js i Docker
 
 ### Baza danych
 
