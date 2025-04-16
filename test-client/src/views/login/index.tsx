@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { login } from "./api/loginApi";
 import "./index.css";
 import { AuthDto } from "./models";
@@ -25,6 +25,8 @@ const LoginView = (): React.JSX.Element => {
     }));
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -35,6 +37,7 @@ const LoginView = (): React.JSX.Element => {
       console.log("Logged in successfully:", result.access_token, result.id);
       dispatch(setAccessToken(result.access_token));
       dispatch(setId(result.id));
+      navigate("/authorized");
     } else {
       setError("Login failed. Please check your username and password.");
     }
