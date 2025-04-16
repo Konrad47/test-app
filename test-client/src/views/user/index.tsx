@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./index.css";
 import { fetchMe } from "./api/userApi";
 
-const HomeView = (): React.JSX.Element => {
+const AuthorizedView = (): React.JSX.Element => {
   const [me, setMe] = useState<{ username: string } | null>(null);
 
   useEffect(() => {
@@ -27,4 +26,4 @@ const HomeView = (): React.JSX.Element => {
   );
 };
 
-export default HomeView;
+export default AuthorizedView;
