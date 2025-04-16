@@ -4,16 +4,20 @@ import "./App.css";
 import HomeView from "./views/home";
 import ExampleView from "./views/example";
 import LoginView from "./views/login";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
 
 function App(): React.JSX.Element {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route index element={<HomeView />}></Route>
-        <Route path="/example" element={<ExampleView />}></Route>
-        <Route path="/login" element={<LoginView />}></Route>
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route index element={<HomeView />}></Route>
+          <Route path="/example" element={<ExampleView />}></Route>
+          <Route path="/login" element={<LoginView />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   );
 }
 

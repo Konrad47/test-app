@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { login } from "./api/exampleApi";
 import "./index.css";
 import { AuthDto } from "./models";
+import { AppDispatch } from "../../store/store";
+import { useDispatch } from "react-redux";
+import { setAccessToken, setId } from "../../store/slices/auth.slice";
 
 const LoginView = (): React.JSX.Element => {
   const [formData, setFormData] = useState<AuthDto>({
@@ -11,6 +14,8 @@ const LoginView = (): React.JSX.Element => {
   });
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const dispatch: AppDispatch = useDispatch();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -28,7 +33,8 @@ const LoginView = (): React.JSX.Element => {
     const result = await login(formData);
     if (result && result.access_token) {
       console.log("Logged in successfully:", result.access_token, result.id);
-      // You might redirect the user or save token in context/state here.
+      dispatch(setAccessToken(result.access_token));
+      dispatch(setId(result.id));
     } else {
       setError("Login failed. Please check your username and password.");
     }
